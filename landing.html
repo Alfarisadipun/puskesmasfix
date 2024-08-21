@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctery Hospital</title>
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+        <div class="navbar" id="navbar">
+            <div class="logo">
+                <h1 style="color: aliceblue;">puskesmas</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>  
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                    <li><a href="login.html" class="btn">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Sistem Informasi Puskesmas</h2>
+                <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Possimus Numquam Veniam Porro Eius, Fugiat Vero Ut Ipsum Libero.</p>
+                <div class="buttons">
+                    <a href="#read-more" class="btn">Baca Selengkapnya</a>
+                    <a href="#appointment" class="btn-outline">Daftar</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="logopuskes-removebg-preview.png" alt="Doctors">
+            </div>
+        </section>
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="fotoabout.jpg" alt="Doctors">
+                </div>
+                <div class="about-text">
+                    <h2>About us</h2>
+                    <p>We Provide The Most Full Medical Services, So Every Person Could Have The Opportunity To Receive Qualitative Medical Help.</p>
+                    <p>Our Clinic Has Grown To Provide A World Class Facility For The Treatment Of Tooth Loss, Dental Cosmetics And Bore Advanced Restorative Dentistry. We Are Among The Most Qualified Implant Providers In The AUS With Over 30 Years Of Quality Training And Experience.</p>
+                    <a href="#read-more" class="btn">Lihat</a>
+                </div>
+            </div>
+        </section>
+            <section id="services" class="services-section">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-cards">
+                    <div class="service-card">
+                        <img src="ikonambulans.png" alt="Ambulance Icon">
+                        <h3>Health Check</h3>
+                        <p>We Offer Extensive Medical Procedures To Outbound & Inbound Patients What It Is And We Are Very Proud Achievement Staff.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="heartikon.jpg" alt="Heart Icon">
+                        <h3>Health Check</h3>
+                        <p>We Offer Extensive Medical Procedures To Outbound & Inbound Patients What It Is And We Are Very Proud Achievement Staff.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="klinikikon.jpg" alt="Clinic Icon">
+                        <h3>Health Check</h3>
+                        <p>We Offer Extensive Medical Procedures To Outbound & Inbound Patients What It Is And We Are Very Proud Achievement Staff.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact-section">
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Contact Us</h3>
+                    <form>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                        
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                        
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="contact-image">
+                    <img src="fotokontak.jpg" alt="Contact Us Image">
+                </div>
+            </div>
+        </section>
+        <div class="footer">
+            <p>&copy; Kelompok 1 (2024). <br> ______________</p>
+        </div>
+    </main>
+    <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                const navbarHeight = document.getElementById('navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    window.addEventListener('scroll', function() {
+        var navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        form {
+            border: 2px solid #f1f1f1;
+            width: 300px; /* Lebar form yang konsisten */
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin-bottom: 20px; /* Jarak konsisten dari elemen gambar */
+        }
+
+        img.avatar {
+            width: 80px; /* Ukuran gambar yang lebih proporsional */
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Jarak antar elemen yang konsisten */
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 10px;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .cancelbtn {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff1100;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .bottom-container {
+            background-color: #f1f1f1;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        span.psw {
+            font-size: 12px;
+        }
+
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<form action="index.html" method="post">
+    <div class="imgcontainer">
+        <img src="logopuskes-removebg-preview.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+        <label for="uname">Username</label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw">Password</label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+    </div>
+
+    <button type="submit">Login</button>
+
+    <div class="bottom-container">
+        <button type="button" class="cancelbtn">Cancel</button>
+        
+    </div>
+</form>
+
+</body>
+</html>

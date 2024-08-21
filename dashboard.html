@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Puskesmas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Ikon Fontawesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="sidebars.css">
+    <style>
+        /* Custom styles for the dashboard */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        #wrapper {
+            display: flex;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        #sidebar-wrapper {
+            min-height: 100vh;
+            margin-left: -15rem;
+            transition: margin .25s ease-out;
+        }
+
+        #sidebar-wrapper .sidebar-heading {
+            padding: 0.875rem 1.25rem;
+            font-size: 1.2rem;
+        }
+
+        #sidebar-wrapper .list-group {
+            width: 15rem;
+        }
+
+        #page-content-wrapper {
+            width: 100%;
+            overflow-y: auto;
+        }
+
+        #wrapper.toggled #sidebar-wrapper {
+            margin-left: 0;
+        }
+
+        .navbar {
+            padding: 0.75rem 1rem;
+        }
+
+        .container-fluid {
+            margin-top: 50px;
+        }
+
+        /* Custom CSS for the sidebar */
+        #sidebar-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+        .profile-icon {
+            text-align: center;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+        .profile-icon img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .sidebar-heading {
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 20px 0;
+            background-color: #218838;
+        }
+        .list-group-item:hover {
+            transform: translateX(10px);
+        }
+         .list-group-item {
+            border: none;
+            transition: all 0.3s ease-in-out;
+        }
+         /* Style for the toggle button */
+         #menu-toggle {
+            background-color: #218838;
+            border: none;
+        }
+
+        #menu-toggle:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="d-flex" id="wrapper">
+        <div class="bg-dark border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading text-white">Sistem Informasi Puskesmas</div>
+            <div class="list-group list-group-flush flex-grow-1">
+                <a href="index.html" class="list-group-item list-group-item-action bg-dark text-white"><i class="fa-solid fa-house"></i>    Home</a>
+                <a href="dashboard.html" class="list-group-item list-group-item-action bg-dark text-white"><i class="fa-solid fa-gauge"></i>     Dashboard</a>
+                <a href="loket.html" class="list-group-item list-group-item-action bg-dark text-white"><i class="fa-solid fa-cash-register"></i>     Loket</a>
+                <a href="#adminSubmenu" class="list-group-item list-group-item-action bg-dark text-white dropdown-toggle" data-toggle="collapse"><i class="fa-solid fa-user-nurse"></i> Admin</a>
+                <div class="collapse" id="adminSubmenu">
+                    <a href="admin-umum.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli Umum</a>
+                    <a href="admin-kandungan.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli Kandungan</a>
+                    <a href="admin-anak.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli Anak</a>
+                    <a href="admin-tht.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli THT</a>
+                    <a href="admin-gigi.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli Gigi</a>
+                    <a href="admin-penyakitdalam.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli Penyakit Dalam</a>
+                </div> 
+                <a href="#masterSubmenu" class="list-group-item list-group-item-action bg-dark text-white dropdown-toggle" data-toggle="collapse"><i class="fa-solid fa-user"></i>     Master</a>
+                <div class="collapse" id="masterSubmenu">
+                    <a href="master-pasien.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Data Pasien</a>
+                    <a href="master-dokter.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Data Dokter</a>
+                    <a href="master-obat.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Data Obat</a>
+                    <a href="master-poli.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Data Poliklinik</a>
+                </div>
+                <a href="rekamedis.html" class="list-group-item list-group-item-action bg-dark text-white"><i class="fa-solid fa-pump-medical"></i>     Rekam Medis</a>
+                <a href="laporan.html" class="list-group-item list-group-item-action bg-dark text-white"><i class="fa-solid fa-circle-exclamation"></i>     Laporan</a>
+            </div>
+            <!-- Profile Icon -->
+            <div class="profile-icon">
+                <img src="logopuskes.png" alt="Profile Picture">
+            </div>
+        </div>
+    
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+    
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="landing.html"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+           
+
+            <div class="container-fluid">
+                <h1 class="mt-4">Dashboard</h1>
+
+                <!-- Stats Section -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card bg-primary text-white h-100">
+                            <div class="card-body">
+                                <div class="card-body-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="mr-5">100 Kunjungan Hari Ini</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card bg-danger text-white h-100">
+                            <div class="card-body">
+                                <div class="card-body-icon">
+                                    <i class="fas fa-procedures"></i>
+                                </div>
+                                <div class="mr-5">1 Rawat Inap</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card bg-success text-white h-100">
+                            <div class="card-body">
+                                <div class="card-body-icon">
+                                    <i class="fas fa-walking"></i>
+                                </div>
+                                <div class="mr-5">2 Rawat Jalan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card bg-warning text-white h-100">
+                            <div class="card-body">
+                                <div class="card-body-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="mr-5">51 Pasien</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Section -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">Laporan Bulanan</div>
+                            <div class="card-body">
+                                <canvas id="kunjunganChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan Bulan Ini -->
+                <div class="row mt-4">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">Layanan Bulan Ini</div>
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Poli Umum
+                                        <span class="badge badge-primary badge-pill">160/200</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Poli Kandungan
+                                        <span class="badge badge-primary badge-pill">310/400</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Poli Anak
+                                        <span class="badge badge-primary badge-pill">480/600</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Poli Gigi
+                                        <span class="badge badge-primary badge-pill">250/300</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Poli THT
+                                        <span class="badge badge-primary badge-pill">190/400</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Poli Penyakit Dalam
+                                        <span class="badge badge-primary badge-pill">450/600</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap and JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="sidebars.js"></script>
+    <script>
+
+        // Chart JS
+        const ctx = document.getElementById('kunjunganChart').getContext('2d');
+        const kunjunganChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Kunjungan',
+                    data: [50, 100, 150, 200, 250, 300],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

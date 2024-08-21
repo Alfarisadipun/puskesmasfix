@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Puskesmas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="sidebars.css">
+    <style>
+        /* Custom CSS for the sidebar */
+        #sidebar-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            background-color: #28a745;
+            color: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .profile-icon {
+            text-align: center;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+
+        .profile-icon img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .sidebar-heading {
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 20px 0;
+            background-color: #218838;
+        }
+
+        .list-group-item {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .list-group-item:hover {
+            background-color: #218838;
+            transform: translateX(10px);
+        }
+
+        .list-group-item-action:active {
+            background-color: #1e7e34;
+            transform: scale(0.98);
+        }
+
+        /* Dropdown menu style */
+        .collapse .list-group-item {
+            background-color: #218838;
+            padding-left: 40px;
+        }
+
+        /* Profile Icon styling */
+        .profile-icon {
+            border-top: 1px solid #218838;
+        }
+
+        /* Style for the toggle button */
+        #menu-toggle {
+            background-color: #218838;
+            border: none;
+        }
+
+        #menu-toggle:hover {
+            background-color: #1e7e34;
+        }
+
+        /* Main content should fill the available space and be scrollable */
+        #page-content-wrapper {
+            width: 100%;
+            overflow-y: auto;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Adjust body height to full view height */
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .h1, h1{
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+     <!-- Sidebar -->
+     <div class="d-flex" id="wrapper">
+        <div class="bg-dark border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading text-white">Sistem Informasi Puskesmas</div>
+            <div class="list-group list-group-flush flex-grow-1">
+                <a href="index.html" class="list-group-item list-group-item-action bg-dark text-white"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="dashboard.html" class="list-group-item list-group-item-action bg-dark text-white"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+                <a href="loket.html" class="list-group-item list-group-item-action bg-dark text-white"><i class="fa-solid fa-cash-register"></i> Loket</a>
+                <a href="#adminSubmenu" class="list-group-item list-group-item-action bg-dark text-white dropdown-toggle" data-toggle="collapse"><i class="fa-solid fa-user-nurse"></i> Admin</a>
+                <div class="collapse" id="adminSubmenu">
+                    <a href="admin-umum.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli Umum</a>
+                    <a href="admin-kandungan.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli Kandungan</a>
+                    <a href="admin-anak.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli Anak</a>
+                    <a href="admin-tht.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli THT</a>
+                    <a href="admin-gigi.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli Gigi</a>
+                    <a href="admin-penyakitdalam.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Poli Penyakit Dalam</a>
+                </div>                             
+                <a href="#masterSubmenu" class="list-group-item list-group-item-action bg-dark text-white dropdown-toggle" data-toggle="collapse"><i class="fa-solid fa-user"></i> Master</a>
+                <div class="collapse" id="masterSubmenu">
+                    <a href="master-pasien.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Data Pasien</a>
+                    <a href="master-dokter.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Data Dokter</a>
+                    <a href="master-obat.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Data Obat</a>
+                    <a href="master-poli.html" class="list-group-item list-group-item-action bg-dark text-white pl-5">Data Poliklinik</a>
+                </div>
+                <a href="rekamedis.html" class="list-group-item list-group-item-action bg-dark text-white"><i class="fa-solid fa-pump-medical"></i> Rekam Medis</a>
+                <a href="laporan.html" class="list-group-item list-group-item-action bg-dark text-white"><i class="fa-solid fa-circle-exclamation"></i> Laporan</a>
+            </div>
+        
+            <!-- Profile Icon -->
+            <div class="profile-icon">
+                <img src="logopuskes.png" alt="Profile Picture">
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="landing.html"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container mt-5">
+                <h1 align="center">Poli Anak</h1>
+                <hr>
+                <h5>Pemeriksaan Fisik</h5>
+                <hr>
+                <hr>
+                    <div class="form-group row">
+                        <label for="namaPasien" class="col-sm-2 col-form-label">Tinggi Badan</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="namaPasien" name="namaPasien">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="namaPasien" class="col-sm-2 col-form-label">Berat Badan</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="namaPasien" name="namaPasien">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="namaPasien" class="col-sm-2 col-form-label">Tekanan Darah</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="namaPasien" name="namaPasien">
+                        </div>
+                    </div>
+                <hr>
+                <hr>
+                <h5>Riwayat Medis</h5>
+                <hr>
+                <hr>
+                    <div class="form-group row">
+                        <label for="namaPasien" class="col-sm-2 col-form-label">Riwayat Penyakit</label>
+                        <div class="col-sm-4">
+                        <input type="text" class="form-control" id="namaPasien" name="namaPasien">
+                    </div>
+                <div class="container mt-5">
+                <hr>
+                <hr>
+                <h5>Pemeriksaan Penunjang</h5>
+                <hr>
+                <hr>
+                    <div class="form-group row">
+                        <label for="namaPasien" class="col-sm-2 col-form-label">Hasil Lab</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="namaPasien" name="namaPasien">
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-5">
+                <hr>
+                <hr>
+                <h5>Resep Obat</h5>
+                <hr>
+                <hr>
+                    <div class="form-group row">
+                        <label for="namaPasien" class="col-sm-2 col-form-label">Nama Obat</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="namaPasien" name="namaPasien">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="namaPasien" class="col-sm-2 col-form-label">Aturan Pakai</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="namaPasien" name="namaPasien">
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Print Button -->
+                <button class="btn btn-success mt-4" onclick="window.print()">Print</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script to toggle sidebar -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+</html>
